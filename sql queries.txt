@@ -1,0 +1,30 @@
+1)select *from students where city="pune"
+2)select *from students where city="pune" or city="bengaluru";
+3)select *from student (city="bengaluru") or(city="pune" and gender="male") or(city="hyderabad" and gender="female");
+4)select *from student where (city="hyderabad" and(gender="male" and marks>7.5) or (gender="female" and marks>8.0)) or (city="pune" and gender="male") and city!="bengaluru";
+5)select *from student where (marks>7.0 and marks<8.0) and (city="hyderabad" or city="bengaluru");
+6)select *from student where sname like "a%A";
+7)select count(sno),city from student group by city;
+8)select city,avg(marks) as average_marks  from student group by city order by average_marks desc;
+9)select city,max(marks) as marks from student group by city;
+10)select *from student where city="hyderabad" order by marks desc limit 1;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1)select s.sname from salespeoples as s,customers as c,orders as o where s.snum=c.snum and c.cnum=o.cnum and o.amt=(select max(o.amt) as hightest_sales from orders as o);
+2)select s.snum,count(c.cnum) from customers c,salespeoples s where c.snum=s.snum group by Find out which customers have placed the most orders.s.snum;
+3)select c.cnum,c.cname,count(o.onum) from customers c,orders o where o.cnum=c.cnum group by c.cnum,c.cname  order by count(o.onum) desc;
+4)select s.sname,avg(o.amt) from customers c,salespeoples s,orders o where s.snum=c.snum and c.cnum=o.cnum group by s.snum;
+5) select c.cname,c.cnum,o.amt from customers c,orders o where o.cnum=c.cnum and o.amt=(select max(o.amt) from orders o);
+6) select c.cname,c.cnum,o.amt from customers c,orders o where o.cnum=c.cnum and o.amt=(select max(o.amt) from orders o);
+7)select s.snum,avg(c.rating) from salespeoples s,customers c where s.snum=c.snum order by s.snum desc limit 1;
+8)
+9) select s.snum,s.sname,sum(o.amt) from salespeoples s,customers c,orders o where s.snum=c.snum and c.cnum=o.cnum group by s.sname;
+10)
+
+
+
+
+
+
+
